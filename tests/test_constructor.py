@@ -11,16 +11,6 @@ class TestConstructorPage:
         bun_displayed = driver.find_element(*MainLocators.bun_ul).is_displayed()
 
         assert bun_text == 'Булки' and bun_displayed
-
-    """Проверка перехода к разделу 'Начинки' """
-    def test_transition_to_topping_success(self, driver):
-        driver.get(BaseURL.MAIN_URL)
-        driver.find_element(*MainLocators.toppings_btn).click()
-        topping = driver.find_element(*MainLocators.topping).text
-        topping_displayed = driver.find_element(*MainLocators.topping_ul).is_displayed()
-
-        assert topping == 'Начинки' and topping_displayed
-
     """Проверка перехода к разделу 'Соусы' """
     def test_transition_to_sauces_success(self, driver):
         driver.get(BaseURL.MAIN_URL)
@@ -29,3 +19,11 @@ class TestConstructorPage:
         souces_displayed = driver.find_element(*MainLocators.sauces_ul).is_displayed()
 
         assert souces == 'Соусы' and souces_displayed
+    """Проверка перехода к разделу 'Начинки' """
+    def test_transition_to_topping_success(self, driver):
+        driver.get(BaseURL.MAIN_URL)
+        driver.find_element(*MainLocators.toppings_btn).click()
+        topping = driver.find_element(*MainLocators.topping).text
+        topping_displayed = driver.find_element(*MainLocators.topping_ul).is_displayed()
+
+        assert topping == 'Начинки' and topping_displayed
