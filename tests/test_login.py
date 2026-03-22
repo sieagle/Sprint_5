@@ -1,6 +1,6 @@
 from models import User
 from locators import MainLocators, LoginLocators, RegisterLocators, RecoverLocators
-from conftest import BaseURL
+from urls import BaseURL
 from selenium.webdriver.support import expected_conditions as conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
