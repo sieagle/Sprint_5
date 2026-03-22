@@ -1,6 +1,7 @@
 from selenium import webdriver
 from locators import MainLocators, LoginLocators
 from models import User, NewRandomUser
+from urls import BaseURL
 import pytest
 
 @pytest.fixture
