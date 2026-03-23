@@ -12,11 +12,11 @@ class MainLocators:
     toppings_btn = (By.XPATH, ".//span[text() = 'Начинки']") #Кнопка переключения на начинки
     place_order_button = (By.XPATH, ".//button[text() = 'Оформить заказ']") #Кнопка оформить заказ
     sauces = (By.XPATH, ".//h2[text() = 'Соусы']") #Текст соусы на главной странице
-    sauces_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[2]") #Выбор соусов на главной странице
+    sauces_ul = (By.XPATH, ".//span[@class = 'text text_type_main-default'][text() = 'Соусы']") #Выбор соусов на главной странице
     bun = (By.XPATH, ".//h2[text() = 'Булки']") #Текст булки на главной странице
-    bun_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[1]") #Выбор булок на главной странице
+    bun_ul = (By.XPATH, ".//span[@class = 'text text_type_main-default'][text() = 'Булки']") #Выбор булок на главной странице
     topping = (By.XPATH, ".//h2[text() = 'Начинки']") #Текст начинки на главной странице
-    topping_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[3]") #Выбор начинок на главной странице
+    topping_ul = (By.XPATH, ".//span[@class = 'text text_type_main-default'][text() = 'Начинки']") #Выбор начинок на главной странице
 
 
 class LoginLocators:
@@ -34,8 +34,8 @@ class LoginLocators:
 class RegisterLocators:
     """Форма регистрации"""
     personal_account_btn = (By.XPATH, ".//p[text() = 'Личный Кабинет']") #Кнопка личного кабинета
-    name_input = (By.XPATH, "(.//input[@name = 'name'])[1]") #Поле ввода имени
-    email_input = (By.XPATH, "(.//input[@name = 'name'])[2]") #Поле ввода email
+    name_input = (By.XPATH, "(.//div[@class = 'input pr-6 pl-6 input_type_text input_size_default']/label[text() = 'Имя']/../input)") #Поле ввода имени
+    email_input = (By.XPATH, "(.//div[@class = 'input pr-6 pl-6 input_type_text input_size_default']/label[text() = 'Email']/../input)") #Поле ввода email
     password_input = (By.XPATH, ".//input[@name = 'Пароль']") #Поле ввода пароля
     registration_btn = (By.XPATH, ".//button[text() = 'Зарегистрироваться']") #Кнопка зерегистрироваться
     login_btn = (By.XPATH, ".//a[text() = 'Войти']") #Кнопка войти
