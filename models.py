@@ -9,3 +9,8 @@ class NewRandomUser:
     user_name = 'Тестовый'
     email = f'serafima_orlova_42_{randint(0, 999)}@yandex.ru'
     password = f'Seo{randint(10000, 99999)}'
+
+    def generate(self):
+        self.email = f'serafima_orlova_42_{randint(0, 999)}@yandex.ru'
+        self.password = f'Seo{randint(10000, 99999)}'
+        return self

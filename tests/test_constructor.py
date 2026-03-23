@@ -1,5 +1,5 @@
 from locators import MainLocators
-from conftest import BaseURL
+from urls import BaseURL
 
 class TestConstructorPage:
     """Проверка перехода к разделу 'Булки' """

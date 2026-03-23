@@ -1,6 +1,6 @@
 from models import User, NewRandomUser
 from locators import RegisterLocators, LoginLocators
-from conftest import BaseURL
+from urls import BaseURL
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected
 
@@ -18,7 +18,7 @@ class TestRegistrationPage:
         WebDriverWait(driver, 3).until(expected.visibility_of_element_located(RegisterLocators.error_message_double_reg))   
         error = driver.find_element(*RegisterLocators.error_message_double_reg).text
 
-        assert (error == 'Такой пользователь уже существует') and (driver.current_url == BaseURL.REG_PAGE_URL)
+        assert (error == 'Такой пользователь уже существует') and (driver.current_url == BaseURL.REGISTER_URL)
     """Проверка регистрации пользователя с некорректным паролем (менее 6 символов)"""
     def test_registration_incorrexpectedt_password_chexpectedk_error(self, driver):
         driver = driver
@@ -33,15 +33,15 @@ class TestRegistrationPage:
 
         assert (error == 'Некорректный пароль') and (driver.current_url == BaseURL.REGISTER_URL)
     """Проверка регистрации пользователя"""
-    def test_registration_success(self, driver):
+    def test_registration_success(self, driver, random_user):
         driver = driver
         driver.get(BaseURL.REGISTER_URL)
         WebDriverWait(driver, 5).until(expected.visibility_of_element_located(RegisterLocators.registration_btn))
-        driver.find_element(*RegisterLocators.name_input).send_keys(NewRandomUser.user_name)
-        driver.find_element(*RegisterLocators.email_input).send_keys(NewRandomUser.email)
-        driver.find_element(*RegisterLocators.password_input).send_keys(NewRandomUser.password)
+        driver.find_element(*RegisterLocators.name_input).send_keys(random_user.user_name)
+        driver.find_element(*RegisterLocators.email_input).send_keys(random_user.email)
+        driver.find_element(*RegisterLocators.password_input).send_keys(random_user.password)
         driver.find_element(*RegisterLocators.registration_btn).click()
-        WebDriverWait(driver, 5).until(expected.visibility_of_element_located(LoginLocators.login_account_btn))
-        login_btn_displayed = driver.find_element(*LoginLocators.login_account_btn).is_displayed()
+        WebDriverWait(driver, 5).until(expected.visibility_of_element_located(LoginLocators.login_btn))
+        login_btn_displayed = driver.find_element(*LoginLocators.login_btn).is_displayed()
 
         assert driver.current_url == BaseURL.LOGIN_URL and login_btn_displayed

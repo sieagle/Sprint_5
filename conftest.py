@@ -1,20 +1,18 @@
 from selenium import webdriver
 from locators import MainLocators, LoginLocators
-from models import User
+from models import User, NewRandomUser
+from urls import BaseURL
 import pytest
-
-class BaseURL:
-    MAIN_URL = 'https://stellarburgers.education-services.ru/' # главная страница
-    LOGIN_URL = 'https://stellarburgers.education-services.ru/login' # страница логина
-    REGISTER_URL = 'https://stellarburgers.education-services.ru/register' # страница регистрации
-    RECOVER_URL = 'https://stellarburgers.education-services.ru/forgot-password' # страница восстановления пароля
-    USER_URL = 'https://stellarburgers.education-services.ru/account/profile' # страница личного кабинета
 
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
     yield driver
     driver.quit()
+
+@pytest.fixture
+def random_user():
+    return NewRandomUser().generate()
 
 @pytest.fixture
 def login_driver(driver):
